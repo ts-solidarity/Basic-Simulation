@@ -6,7 +6,7 @@
 #include "Account.h"
 
 
-static int generateRandomNumber(int min_val, int max_val) {
+static int generateRandomNumber(const int& min_val, const int& max_val) {
 	if (min_val > max_val) {
 		throw std::invalid_argument("Minimum value cannot be greater than maximum value.");
 	}
@@ -17,14 +17,14 @@ static int generateRandomNumber(int min_val, int max_val) {
 	return distribution(generator);
 }
 
-Person::Person(uint64_t id)
+Person::Person(const uint64_t& id)
 	: m_id(id), m_personality(MiddleGround), 
 	m_money(1000), m_energy(100),
 	m_experience(0), m_maxEnergy(100)
 {
 }
 
-Person::Person(uint64_t id, uint64_t personality)
+Person::Person(const uint64_t& id, const uint64_t& personality)
 	: m_id(id), m_personality(personality), 
 	m_money(1000), m_energy(100), 
 	m_experience(0), m_maxEnergy(100)
@@ -32,21 +32,21 @@ Person::Person(uint64_t id, uint64_t personality)
 }
 
 
-Person::Person(uint64_t id, double money)
+Person::Person(const uint64_t& id, const double& money)
 	: m_id(id), m_personality(MiddleGround), 
 	m_money(money), m_energy(100), 
 	m_experience(0), m_maxEnergy(100)
 {
 }
 
-Person::Person(uint64_t id, double money, double energy)
+Person::Person(const uint64_t& id, const double& money, const double& energy)
 	: m_id(id), m_personality(MiddleGround),
 	m_money(money), m_energy(energy),
 	m_experience(0), m_maxEnergy(100)
 {
 }
 
-Person::Person(uint64_t id, double money, double energy, double experience)
+Person::Person(const uint64_t& id, const double& money, const double& energy, const double& experience)
 	: m_id(id), m_personality(MiddleGround), 
 	m_money(money), m_energy(energy), 
 	m_experience(experience), m_maxEnergy(100)
@@ -54,7 +54,7 @@ Person::Person(uint64_t id, double money, double energy, double experience)
 }
 
 
-Person::Person(uint64_t id, double money, double energy, double experience, std::weak_ptr<Account> account)
+Person::Person(const uint64_t& id, const double& money, const double& energy, const double& experience, const std::weak_ptr<Account>& account)
 	: m_id(id), m_personality(MiddleGround),
 	m_money(money), m_energy(energy),
 	m_experience(experience), m_maxEnergy(100),
@@ -102,42 +102,42 @@ double Person::GetAccountMoney() const
 	return NULL;
 }
 
-void Person::SetId(uint64_t id)
+void Person::SetId(const uint64_t& id)
 {
 	m_id = id;
 }
 
-void Person::SetMoney(double money)
+void Person::SetMoney(const double& money)
 {
 	m_money = money;
 }
 
-void Person::SetEnergy(double energy)
+void Person::SetEnergy(const double& energy)
 {
 	m_energy = energy;
 }
 
-void Person::SetExperience(double experience)
+void Person::SetExperience(const double& experience)
 {
 	m_experience = experience;
 }
 
-void Person::SetAccount(std::weak_ptr<Account> account)
+void Person::SetAccount(const std::weak_ptr<Account>& account)
 {
 	m_account = account;
 }
 
-void Person::IncreaseMoney(double amount)
+void Person::IncreaseMoney(const double& amount)
 {
 	m_money += amount;
 }
 
-void Person::DecreaseMoney(double amount)
+void Person::DecreaseMoney(const double& amount)
 {
 	m_money -= amount;
 }
 
-void Person::IncreaseEnergy(double amount)
+void Person::IncreaseEnergy(const double& amount)
 {
 	if (m_energy + amount > m_maxEnergy)
 	{
@@ -148,17 +148,17 @@ void Person::IncreaseEnergy(double amount)
 	m_energy += amount;
 }
 
-void Person::DecreaseEnergy(double amount)
+void Person::DecreaseEnergy(const double& amount)
 {
 	m_energy -= amount;
 }
 
-void Person::IncreaseExperience(double amount)
+void Person::IncreaseExperience(const double& amount)
 {
 	m_experience += amount;
 }
 
-void Person::DecreaseExperience(double amount)
+void Person::DecreaseExperience(const double& amount)
 {
 	m_experience -= amount;
 }
@@ -170,7 +170,7 @@ void Person::Work()
 	IncreaseExperience(CalculateExperienceGain());
 }
 
-void Person::Deposit(double amount)
+void Person::Deposit(const double& amount)
 {
 	DecreaseMoney(amount);
 	GetAccount()->IncreaseMoney(amount);
@@ -181,13 +181,13 @@ void Person::Sleep()
 	IncreaseEnergy(CalculateEnergyGain());
 }
 
-void Person::TakeLoan(double amount)
+void Person::TakeLoan(const double& amount)
 {
 	IncreaseMoney(amount);
 	GetAccount()->IncreaseLoan(amount);
 }
 
-void Person::PayLoan(double amount)
+void Person::PayLoan(const double& amount)
 {
 	DecreaseMoney(amount);
 	GetAccount()->DecreaseLoan(amount);

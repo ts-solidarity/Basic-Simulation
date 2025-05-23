@@ -9,10 +9,10 @@ class Account
 
 public:
 
-	Account(uint64_t id);
-	Account(uint64_t id, double money);
-	Account(uint64_t id, double money, double interest);
-	Account(uint64_t id, double money, double interest, std::shared_ptr<Person> person);
+	Account(const uint64_t& id);
+	Account(const uint64_t& id, const double& money);
+	Account(const uint64_t& id, const double& money, const double& interest);
+	Account(const uint64_t& id, const double&money, const double& interest, const std::shared_ptr<Person>& person);
 
 	uint64_t GetId() const;
 	double GetMoney() const;
@@ -23,23 +23,23 @@ public:
 	double GetLoanInterest() const;
 	uint64_t GetLoanPeriod() const;
 
-	void SetId(uint64_t id);
-	void SetMoney(double money);
-	void SetDepositInterest(double interest);
-	void SetPerson(std::shared_ptr<Person> person);
-	void SetPeriod(uint64_t period);
-	void SetLoan(double loan);
-	void SetLoanInterest(double interest);
-	void SetLoanPeriod(uint64_t period);
+	void SetId(const uint64_t& id);
+	void SetMoney(const double& money);
+	void SetDepositInterest(const double& interest);
+	void SetPerson(const std::shared_ptr<Person>& person);
+	void SetPeriod(const uint64_t& period);
+	void SetLoan(const double& loan);
+	void SetLoanInterest(const double& interest);
+	void SetLoanPeriod(const uint64_t& period);
 
-	void IncreaseMoney(double amount);
-	void DecreaseMoney(double amount);
-	void IncreaseDepositInterest(double amount);
-	void DecreaseDepositInterest(double amount);
-	void IncreaseLoan(double amount);
-	void DecreaseLoan(double amount);
-	void IncreaseLoanInterest(double amount);
-	void DecreaseLoanInterest(double amount);
+	void IncreaseMoney(const double& amount);
+	void DecreaseMoney(const double& amount);
+	void IncreaseDepositInterest(const double&amount);
+	void DecreaseDepositInterest(const double&amount);
+	void IncreaseLoan(const double& amount);
+	void DecreaseLoan(const double& amount);
+	void IncreaseLoanInterest(const double& amount);
+	void DecreaseLoanInterest(const double& amount);
 
 	double CalculateDepositInterest() const;
 	double CalculateLoanInterest() const;

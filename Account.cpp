@@ -2,7 +2,7 @@
 #include "Person.h"
 
 
-Account::Account(uint64_t id)
+Account::Account(const uint64_t& id)
 	: m_id(id), m_money(0), 
 	m_depositInterest(2), m_person(nullptr), 
 	m_depositInterestPeriod(5), m_loan(0), 
@@ -10,7 +10,7 @@ Account::Account(uint64_t id)
 {
 }
 
-Account::Account(uint64_t id, double money)
+Account::Account(const uint64_t& id, const double& money)
 	: m_id(id), m_money(money), 
 	m_depositInterest(2), m_person(nullptr), 
 	m_depositInterestPeriod(5), m_loan(0),
@@ -18,7 +18,7 @@ Account::Account(uint64_t id, double money)
 {
 }
 
-Account::Account(uint64_t id, double money, double interest)
+Account::Account(const uint64_t& id, const double& money, const double& interest)
 	: m_id(id), m_money(money),
 	m_depositInterest(interest), m_person(nullptr), 
 	m_depositInterestPeriod(5), m_loan(0), 
@@ -26,7 +26,7 @@ Account::Account(uint64_t id, double money, double interest)
 {
 }
 
-Account::Account(uint64_t id, double money, double interest, std::shared_ptr<Person> person)
+Account::Account(const uint64_t& id, const double& money, const double& interest, const std::shared_ptr<Person>& person)
 	: m_id(id), m_money(money), 
 	m_depositInterest(interest), m_person(person), 
 	m_depositInterestPeriod(5), m_loan(0), 
@@ -75,83 +75,84 @@ uint64_t Account::GetLoanPeriod() const
 }
 
 
-void Account::SetId(uint64_t id)
+void Account::SetId(const uint64_t& id)
 {
 	m_id = id;
 }
 
-void Account::SetMoney(double money)
+void Account::SetMoney(const double& money)
 {
 	m_money = money;
 }
 
-void Account::SetDepositInterest(double interest)
+void Account::SetDepositInterest(const double& interest)
 {
 	m_depositInterest = interest;
 }
 
-void Account::SetPerson(std::shared_ptr<Person> person)
+void Account::SetPerson(const std::shared_ptr<Person>& person)
 {
 	m_person = person;
 }
 
-void Account::SetPeriod(uint64_t period)
+void Account::SetPeriod(const uint64_t& period)
 {
 	m_depositInterestPeriod = period;
 }
 
-void Account::SetLoan(double loan)
+void Account::SetLoan(const double& loan)
 {
 	m_loan = loan;
 }
 
-void Account::SetLoanInterest(double interest)
+void Account::SetLoanInterest(const double& interest)
 {
 	m_loanInterest = interest;
 }
 
-void Account::SetLoanPeriod(uint64_t period)
+void Account::SetLoanPeriod(const uint64_t& period)
 {
 	m_loanInterestPeriod = period;
 }
 
 
-void Account::IncreaseMoney(double amount)
+
+void Account::IncreaseMoney(const double& amount)
 {
 	m_money += amount;
 }
 
-void Account::DecreaseMoney(double amount)
+void Account::DecreaseMoney(const double& amount)
 {
 	m_money -= amount;
 }
 
-void Account::IncreaseDepositInterest(double amount)
+void Account::IncreaseDepositInterest(const double& amount)
 {
 	m_depositInterest += amount;
 }
 
-void Account::DecreaseDepositInterest(double amount)
+void Account::DecreaseDepositInterest(const double& amount)
 {
 	m_depositInterest -= amount;
 }
 
-void Account::IncreaseLoan(double amount)
+void Account::IncreaseLoan(const double& amount)
 {
 	m_loan += amount;
 }
 
-void Account::DecreaseLoan(double amount)
+void Account::DecreaseLoan(const double& amount)
 {
 	m_loan -= amount;
 }
 
-void Account::IncreaseLoanInterest(double amount)
+void Account::IncreaseLoanInterest(const double& amount)
 {
 	m_loanInterest += amount;
 }
 
-void Account::DecreaseLoanInterest(double amount)
+void Account::DecreaseLoanInterest(const double& amount)
 {
 	m_loanInterest -= amount;
 }

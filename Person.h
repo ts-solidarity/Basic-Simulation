@@ -16,12 +16,12 @@ public:
 
 public:
 
-	Person(uint64_t id);
-	Person(uint64_t id, uint64_t personality);
-	Person(uint64_t id, double money);
-	Person(uint64_t id, double money, double energy);
-	Person(uint64_t id, double money, double energy, double experience);
-	Person(uint64_t id, double money, double energy, double experience, std::weak_ptr<Account> account);
+	Person(const uint64_t& id);
+	Person(const uint64_t& id, const uint64_t& personality);
+	Person(const uint64_t& id, const double& money);
+	Person(const uint64_t& id, const double& money, const double& energy);
+	Person(const uint64_t& id, const double& money, const double& energy, const double& experience);
+	Person(const uint64_t& id, const double& money, const double& energy, const double& experience, const std::weak_ptr<Account>& account);
 
 	uint64_t GetId() const;
 	double GetMoney() const;
@@ -30,24 +30,24 @@ public:
 	std::shared_ptr<Account> GetAccount() const;
 	double GetAccountMoney() const;
 
-	void SetId(uint64_t id);
-	void SetMoney(double money);
-	void SetEnergy(double energy);
-	void SetExperience(double experience);
-	void SetAccount(std::weak_ptr<Account> account);
+	void SetId(const uint64_t& id);
+	void SetMoney(const double& money);
+	void SetEnergy(const double& energy);
+	void SetExperience(const double& experience);
+	void SetAccount(const std::weak_ptr<Account>& account);
 
-	void IncreaseMoney(double amount);
-	void DecreaseMoney(double amount);
-	void IncreaseEnergy(double amount);
-	void DecreaseEnergy(double amount);
-	void IncreaseExperience(double amount);
-	void DecreaseExperience(double amount);
+	void IncreaseMoney(const double& amount);
+	void DecreaseMoney(const double& amount);
+	void IncreaseEnergy(const double& amount);
+	void DecreaseEnergy(const double& amount);
+	void IncreaseExperience(const double& amount);
+	void DecreaseExperience(const double& amount);
 
 	void Work();
-	void Deposit(double amount);
+	void Deposit(const double& amount);
 	void Sleep();
-	void TakeLoan(double amount);
-	void PayLoan(double amount);
+	void TakeLoan(const double& amount);
+	void PayLoan(const double& amount);
 
 	double CalculateMoneyGain() const;
 	double CalculateEnergyLoss() const;
